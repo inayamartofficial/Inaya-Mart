@@ -1,93 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inaya Mart - Stylish Clothing</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        header { background: #333; color: white; padding: 1rem; text-align: center; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .cart { cursor: pointer; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; padding: 2rem; }
-        .product { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
-        .product img { width: 100%; height: 200px; object-fit: cover; }
-        button { background: #28a745; color: white; border: none; padding: 0.5rem; cursor: pointer; }
-        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
-        .cart-content { background: white; padding: 2rem; border-radius: 8px; width: 80%; max-width: 500px; }
-        #checkout { margin-top: 1rem; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Inaya Mart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f7f7f7; }
+    header { background:#111; color:#fff; padding:15px; text-align:center; }
+    .container { padding:20px; }
+    .products { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
+    .card { background:#fff; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    .card img { width:100%; border-radius:10px; }
+    button { background:#111; color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer; width:100%; }
+    button:hover { background:#333; }
+    #cart { margin-top:30px; background:#fff; padding:20px; border-radius:10px; }
+    footer { background:#111; color:#fff; text-align:center; padding:10px; margin-top:40px; }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <h1>Inaya Mart</h1>
-            <div class="cart" onclick="showCart()">Cart (<span id="cart-count">0</span>)</div>
-        </nav>
-    </header>
-
-    <section class="products" id="products">
-        <!-- Sample products; replace with dynamic data -->
-        <div class="product">
-            <img src="https://via.placeholder.com/250x200?text=T-Shirt" alt="T-Shirt">
-            <h3>Cotton T-Shirt</h3>
-            <p>$20.00</p>
-            <button onclick="addToCart('Cotton T-Shirt', 20)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/250x200?text=Jeans" alt="Jeans">
-            <h3>Denim Jeans</h3>
-            <p>$50.00</p>
-            <button onclick="addToCart('Denim Jeans', 50)">Add to Cart</button>
-        </div>
-        <!-- Add more products here -->
-    </section>
-
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-content">
-            <h2>Your Cart</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: $<span id="total">0</span></p>
-            <button id="checkout" onclick="checkout()">Proceed to Checkout</button>
-            <button onclick="hideCart()">Close</button>
-        </div>
+<body><header>
+  <h1>Inaya Mart</h1>
+  <p>স্টাইলিশ পোশাক, আধুনিক ফ্যাশন</p>
+</header><div class="container">
+  <h2>আমাদের পণ্যসমূহ</h2>
+  <div class="products">
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="T-Shirt" />
+      <h3>প্রিমিয়াম টি-শার্ট</h3>
+      <p>মূল্য: ৳800</p>
+      <button onclick="addToCart('টি-শার্ট', 800)">কার্টে যোগ করুন</button>
     </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Hoodie" />
+      <h3>স্টাইলিশ হুডি</h3>
+      <p>মূল্য: ৳1500</p>
+      <button onclick="addToCart('হুডি', 1500)">কার্টে যোগ করুন</button>
+    </div>
+  </div>  <div id="cart">
+    <h2>আপনার কার্ট</h2>
+    <ul id="cartItems"></ul>
+    <h3 id="total">মোট: ৳0</h3>
+    <button onclick="checkout()">পেমেন্ট করুন</button>
+  </div>
+</div><footer>
+  <p>© 2025 Inaya Mart | সকল অধিকার সংরক্ষিত</p>
+</footer><script>
+  let total = 0;
+  function addToCart(name, price) {
+    const li = document.createElement('li');
+    li.textContent = name + ' - ৳' + price;
+    document.getElementById('cartItems').appendChild(li);
+    total += price;
+    document.getElementById('total').textContent = 'মোট: ৳' + total;
+  }
 
-    <script>
-        let cart = [];
-        let total = 0;
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            total += price;
-            document.getElementById('cart-count').textContent = cart.length;
-            updateCartDisplay();
-        }
-
-        function updateCartDisplay() {
-            const cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = '';
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - $${item.price}`;
-                cartItems.appendChild(li);
-            });
-            document.getElementById('total').textContent = total;
-        }
-
-        function showCart() {
-            document.getElementById('cart-modal').style.display = 'flex';
-        }
-
-        function hideCart() {
-            document.getElementById('cart-modal').style.display = 'none';
-        }
-
-        function checkout() {
-            // Placeholder for payment gateway (e.g., integrate Stripe)
-            alert('Redirecting to payment... (Integrate Stripe/PayPal here)');
-            // Example: window.location.href = 'https://checkout.stripe.com/pay/...';
-        }
-    </script>
-</body>
+  function checkout() {
+    alert('পেমেন্ট গেটওয়ে এখানে যুক্ত হবে (Bkash / Nagad / Card)। ধন্যবাদ!');
+  }
+</script></body>
 </html>
