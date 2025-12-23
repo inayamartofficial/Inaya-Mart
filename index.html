@@ -1,214 +1,35 @@
 <!DOCTYPE html>
-‎<html lang="bn">
+‎<html lang="en">
 ‎<head>
-‎  <meta charset="UTF-8" />
-‎  <meta name="viewport" content="width=device-width, initial-scale=1" />
-‎  <title>Ghorer Bazar</title>
-‎  <style>
-‎    body {
-‎      font-family: Arial, sans-serif;
-‎      margin: 0;
-‎      padding: 0;
-‎      background: #fff;
-‎      color: #000;
-‎    }
-‎    .topbar {
-‎      background-color: #f58220;
-‎      color: white;
-‎      padding: 10px 15px;
-‎      font-size: 14px;
-‎      text-align: center;
-‎    }
-‎    .topbar a {
-‎      color: white;
-‎      text-decoration: none;
-‎      font-weight: bold;
-‎    }
-‎    header {
-‎      display: flex;
-‎      align-items: center;
-‎      justify-content: space-between;
-‎      padding: 10px 15px;
-‎      border-bottom: 1px solid #ddd;
-‎      background-color: #fff;
-‎      position: sticky;
-‎      top: 0;
-‎      z-index: 1000;
-‎    }
-‎    .logo {
-‎      display: flex;
-‎      align-items: center;
-‎      gap: 10px;
-‎    }
-‎    .logo img {
-‎      height: 35px;
-‎    }
-‎    .menu-icons {
-‎      display: flex;
-‎      align-items: center;
-‎      gap: 15px;
-‎      font-size: 20px;
-‎      cursor: pointer;
-‎    }
-‎    .banner {
-‎      background: #fff3e0;
-‎      padding: 30px 15px;
-‎      text-align: center;
-‎    }
-‎    .banner img {
-‎      max-width: 100%;
-‎      height: auto;
-‎      max-height: 200px;
-‎    }
-‎    .banner-text {
-‎      background-color: #f58220;
-‎      color: white;
-‎      display: inline-block;
-‎      margin-top: 10px;
-‎      font-weight: bold;
-‎      padding: 8px 15px;
-‎      border-radius: 18px 0 18px 0;
-‎    }
-‎    main {
-‎      max-width: 1000px;
-‎      margin: 20px auto;
-‎      padding: 0 15px;
-‎    }
-‎    h2 {
-‎      text-align: center;
-‎      margin-bottom: 20px;
-‎      font-weight: bold;
-‎      letter-spacing: 1.5px;
-‎    }
-‎    .product-list {
-‎      display: grid;
-‎      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-‎      gap: 20px;
-‎    }
-‎    .product-card {
-‎      border: 1px solid #ddd;
-‎      border-radius: 8px;
-‎      padding: 10px;
-‎      text-align: center;
-‎      position: relative;
-‎    }
-‎    .product-card img {
-‎      max-width: 100%;
-‎      height: 150px;
-‎      object-fit: contain;
-‎      margin-bottom: 10px;
-‎    }
-‎    .on-sale {
-‎      position: absolute;
-‎      top: 10px;
-‎      left: 10px;
-‎      background-color: #a6dcef;
-‎      color: #008397;
-‎      font-weight: 600;
-‎      padding: 4px 10px;
-‎      border-radius: 10px;
-‎      font-size: 12px;
-‎    }
-‎    .discount-badge {
-‎      position: absolute;
-‎      top: 10px;
-‎      right: 10px;
-‎      background-color: #ff4040;
-‎      color: white;
-‎      font-weight: 700;
-‎      padding: 5px 10px;
-‎      border-radius: 50%;
-‎      font-size: 12px;
-‎    }
-‎    .product-name {
-‎      font-size: 16px;
-‎      font-weight: 500;
-‎      margin-top: 5px;
-‎    }
-‎    .chat-btn {
-‎      position: fixed;
-‎      bottom: 20px;
-‎      right: 20px;
-‎      background-color: #f58220;
-‎      border: none;
-‎      color: white;
-‎      border-radius: 50%;
-‎      width: 55px;
-‎      height: 55px;
-‎      font-size: 30px;
-‎      cursor: pointer;
-‎      box-shadow: 0px 0px 8px rgba(245,130,32,0.7);
-‎      display: flex;
-‎      align-items: center;
-‎      justify-content: center;
-‎    }
-‎    .chat-tooltip {
-‎      position: fixed;
-‎      bottom: 85px;
-‎      right: 20px;
-‎      background: white;
-‎      border-radius: 10px;
-‎      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-‎      padding: 10px;
-‎      font-size: 14px;
-‎      display: none;
-‎      width: 160px;
-‎      color: #333;
-‎    }
-‎  </style>
+‎  <meta charset="UTF-8">
+‎  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎  <title>Inaya Mart</title>
+‎  <link rel="stylesheet" href="style.css">
 ‎</head>
 ‎<body>
-‎
-‎  <div class="topbar">
-‎    আমাদের যে কোন পণ্য অর্ডার করতে কল বা WhatsApp করুন: 
-‎    <a href="tel:+8801321208940">+8801321208940</a> | 
-‎    <a href="tel:09642922922">হট লাইন: 09642-922922</a>
-‎  </div>
-‎
 ‎  <header>
-‎    <div class="menu-icons" aria-label="Menu">&#9776;</div>
-‎    <div class="logo" aria-label="Ghorer Bazar logo">
-‎      <img src="https://ghorerbazar.com/wp-content/uploads/2021/11/favicon.png" alt="Ghorer Bazar Logo" />
-‎      <span style="font-weight: bold; color:#f58220;">GHORER BAZAR</span>
-‎    </div>
-‎    <div class="menu-icons">
-‎      <span style="font-size:20px; cursor:pointer;" title="Search">&#128269;</span>
-‎      <span style="font-size:20px; cursor:pointer;" title="Cart">&#128722;</span>
-‎    </div>
+‎      <h1>Inaya Mart</h1>
+‎      <nav>
+‎          <a href="#">Home</a>
+‎          <a href="#products">Products</a>
+‎          <a href="#order">Order</a>
+‎      </nav>
 ‎  </header>
 ‎
-‎  <section class="banner">
-‎    <img src="https://ghorerbazar.com/wp-content/uploads/2021/11/banner-products.png" alt="Ghorer Bazar Products" />
-‎    <div class="banner-text">মাসের সেরা বাজার হোক ঘরেরবাজার-এর সাথে</div>
+‎  <section id="products" class="product-container">
+‎      <!-- Products will load here -->
 ‎  </section>
 ‎
-‎  <main>
-‎    <h2>ALL PRODUCT</h2>
-‎    <div class="product-list">
-‎      <div class="product-card" aria-label="Khejur Gura product on sale">
-‎        <div class="on-sale">ON SALE</div>
-‎        <div class="discount-badge">530TK<br>DISCOUNT</div>
-‎        <img src="https://ghorerbazar.com/wp-content/uploads/2021/11/khejur-gura.png" alt="Khejur Gura Product" />
-‎        <div class="product-name">খেজুর গুড় / Khejur Gura</div>
-‎      </div>
-<div class="product-card" aria-label="Patali Gura product on sale">
-‎<div class="on-sale">ON SALE</div>
-‎<img src="https://ghorerbazar.com/wp-content/uploads/2021/11/patali-gura.png" alt="Patali Gura Product" />
-‎<div class="product-name">পাটালি / Patali Gur</div>
-‎</div>
-‎</div>
-‎</main>
-‎<button class="chat-btn" aria-label="Chat with us" title="Chat with us" onclick="toggleChat()">💬</button>
-‎  <div class="chat-tooltip" id="chatTooltip">👋 Chat with us</div>
-‎<script>
-‎function toggleChat() {
-‎      const tooltip = document.getElementById('chatTooltip');
-‎      if (tooltip.style.display === 'block') {
-‎        tooltip.style.display = 'none';
-‎      } else {
-‎        tooltip.style.display = 'block';
-‎      }
-‎    }
-‎  </script>
+‎  <section id="order">
+‎      <h2>Place Your Order</h2>
+‎      <form id="orderForm">
+‎          <input type="text" placeholder="Your Name" required>
+‎          <input type="text" placeholder="Mobile Number" required>
+‎          <textarea placeholder="Address" required></textarea>
+‎          <button type="submit">Confirm Order</button>
+‎      </form>
+‎  </section>
+‎
+‎<script src="script.js"></script>
 ‎</body>
 ‎</html>
